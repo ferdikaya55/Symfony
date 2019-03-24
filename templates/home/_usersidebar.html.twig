@@ -1,0 +1,22 @@
+
+
+<div id="sidebar" class="span3">
+    <div class="well well-small"> <a id="myCart" href="{{ path('shopcart_index') }}"><img src="{{ asset('themes') }}/images/ico-cart.png" alt="cart"> <b class="alert-error">Sepette %50 İndirim Fırsatı</b></a></div>
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        <li><a href="{{ path('userpanel_show') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BİLGİLERİM</font></font></a>
+        </li>
+        <li><a href="{{ path('userpanel_edit') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> DÜZENLE </font></font></a>
+        </li>
+        <li ><a href="{{ path('orders_index') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SİPARİŞLERİM</font></font></a>
+        </li>
+        <li><a href="{{ path('shopcart_index') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SEPETİM</font></font></a></li>
+        <li><a href="{{ path('app_logout') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ÇIKIŞ</font></font></a></li>
+    </ul>
+    <br>
+    <div class="thumbnail">
+        <img src="{{ asset('themes') }}/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+        <div class="caption">
+            <h5>Ödeme İmkanları</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Shopcart Order Items{% endblock %}
+{% block sidebar %} {% include ('home/_usersidebar.html.twig') %} {% endblock %}
+{% block content %}
+
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Anasayfa</a> <span class="divider">/</span></li>
+        <li><a href="#">Shopcart Items</a> <span class="divider">/</span></li>
+        <li class="active">Ürün Detayı</li>
+    </ul>
+    <div class="row">
+
+        <div id="gallery" class="span3">
+            <h5>Shopcart Items </h5>
+            {{ include('admin/orders/_form.html.twig') }}
+        </div>
+    </div>
+
+
+
+{% endblock %}

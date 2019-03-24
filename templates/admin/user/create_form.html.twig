@@ -1,0 +1,84 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme {% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="page-head-line">Üye Ekleme</h2>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <div class="panel panel-default">
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        Yeni Üye Ekleme
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="post">
+
+                            <div class="form-group">
+                                <label>Adı Soyadı</label>
+                                <input class="form-control" type="text"  name="user[name]" placeholder="Adı Soyadı">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="email"  name="user[email]" placeholder="Email">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password"  name="user[password]" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label>Adres</label>
+                                <input class="form-control" type="adress"  name="user[address]" placeholder="adress">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon</label>
+                                <input class="form-control" type="phone"  name="user[phone]" placeholder="phone">
+
+                            </div>
+                            <div class="form-group">
+                                <label>Şehir</label>
+                                <input class="form-control" type="city"  name="user[city]" placeholder="city">
+                            </div>
+
+                            <div class="form-group" >
+                                <label>Türü</label>
+                               <select class="form-control"  name="user[roles]">
+                                   <option>ROLE_ADMIN</option>
+                                   <option>ROLE_USER</option>
+                               </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Aktif Durumu</label>
+                                <select class="form-control"  name="user[status]">
+                                    <option>True</option>
+                                    <option>False</option>
+
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger">KAYDET </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- /. PAGE INNER  -->
+    </div>
+{% endblock %}

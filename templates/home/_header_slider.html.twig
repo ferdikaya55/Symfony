@@ -1,0 +1,51 @@
+<div id="carouselBlk">
+    <div id="myCarousel" class="carousel slide" >
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <div class="container">
+                    <a href="{{ path('product_detail',{'id':headersliders[0].id}) }}"><img style="width:100%" src="{{ asset('uploads') }}/images/{{ headersliders[0].image }}" /></a>
+                    <div class="carousel-caption">
+                        <h4>{{ headersliders[0].title }}</h4>
+                        <p>{{ headersliders[0].description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item ">
+                <div class="container">
+                    <a href="{{ path('product_detail',{'id':headersliders[1].id}) }}"><img style="width:100%" src="{{ asset('uploads') }}/images/{{ headersliders[1].image }}" /></a>
+                    <div class="carousel-caption">
+                        <h4>{{ headersliders[1].title }}</h4>
+                        <p>{{ headersliders[1].description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item ">
+                <div class="container">
+
+                    <a href="{{ path('product_detail',{'id':headersliders[2].id}) }}"><img style="width:100%" src="{{ asset('uploads') }}/images/{{ headersliders[2].image }}"  /></a>
+                    <div class="carousel-caption">
+                        <h4>{{ headersliders[2].title }}</h4>
+                        <p>{{ headersliders[2].description }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item ">
+                <div class="container">
+                    <a href="{{ path('product_detail',{'id':headersliders[3].id}) }}"><img style="width:100%" src="{{ asset('uploads') }}/images/{{ headersliders[3].image }}" /></a>
+                    <div class="carousel-caption">
+                        <h4>{{ headersliders[3].title }}</h4>
+                        <p>{{ headersliders[3].description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;</font></font></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;</font></font></a>
+    </div>
+</div>
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+

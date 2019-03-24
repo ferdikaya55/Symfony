@@ -1,0 +1,71 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} İletişim  {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block content %}
+    <div class="container">
+        <hr class="soften">
+        <h1>Bizi Ziyaret Edin</h1>
+        {{ include('messages.html.twig') }}
+        <hr class="soften">
+        <div class="row">
+
+            <div class="span4">
+                <h4>Çalışma Saatleri</h4>
+                <h5> Pazartesi - Cuma</h5>
+                <p>08:00am - 10:00pm<br><br></p>
+                <h5>Cumartesi</h5>
+                <p>09:00am - 07:00pm<br><br></p>
+                <h5>Pazar</h5>
+                <p>12:30pm - 06:00pm<br><br></p>
+            </div>
+
+            <div class="span4">
+                <h4>İletişim Detayları</h4>
+                    {{ data[0].contact | raw }}
+                </p>
+            </div>
+
+
+            <div class="span4">
+                <h4>Bize Yazın</h4>
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <div class="control-group">
+
+                            <input type="text" name="messages[name]" placeholder="name" class="input-xlarge">
+
+                        </div>
+                        <div class="control-group">
+
+                            <input type="text" name="messages[email]" placeholder="email" class="input-xlarge">
+
+                        </div>
+                        <div class="control-group">
+
+                            <input type="text" name="messages[subject]" placeholder="subject" class="input-xlarge">
+
+                        </div>
+                        <div class="control-group">
+                            <textarea rows="3" name="messages[message]" id="textarea" class="input-xlarge"></textarea>
+
+                        </div>
+                        <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+                        <button class="btn btn-large" type="submit">Mesaj Gönder</button>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <iframe style="width:100%; height:300; border: 0px" scrolling="no" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;aq=0&amp;oq=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;sll=39.9589,-120.955336&amp;sspn=0.007114,0.016512&amp;ie=UTF8&amp;hq=&amp;hnear=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;t=m&amp;ll=36.732762,-119.695787&amp;spn=0.017197,0.100336&amp;z=14&amp;output=embed"></iframe><br>
+                <small><a href="https://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;aq=0&amp;oq=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;sll=39.9589,-120.955336&amp;sspn=0.007114,0.016512&amp;ie=UTF8&amp;hq=&amp;hnear=Maslak, Maslak İş Hanı, Büyükdere Caddesi, Şişli/Istanbul, Turkey&amp;t=m&amp;ll=36.732762,-119.695787&amp;spn=0.017197,0.100336&amp;z=14" style="color:#0000FF;text-align:left">Haritada Görüntüle</a></small>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

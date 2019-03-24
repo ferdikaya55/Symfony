@@ -1,0 +1,20 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Referanslar  {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+
+
+{% block content %}
+    <div id="mainBody">
+        <div class="container">
+            <h1>REFERANSLARIMIZ</h1>
+            <hr class="soften">
+            <div class="accordion" id="accordion2">
+                <div class="accordion">
+                    {{ data[0].referances | raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

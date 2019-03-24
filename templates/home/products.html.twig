@@ -1,0 +1,50 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block sidebar %} {% include ('home/_sidebar.html.twig') %} {% endblock %}
+{% block content %}
+
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="{{ path('home') }}">Anasayfa</a> <span class="divider">/</span></li>
+            <li class="active">{{ data[0].title }}</li>
+        </ul>
+        <h3> {{ data[0].title }} <small class="pull-right"> Sizler İçin En İyi Ürünlerimiz </small></h3>
+        <hr class="soft">
+        <p>
+            {{ data[0].description }}
+        </p>
+
+        <hr class="soft">
+    <div class="tab-content">
+        <div class="tab-pane  active" id="blockView">
+                <ul class="thumbnails">
+                    {% for rs in products %}
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                            <div class="caption">
+                                <h5>{{ rs.title }}</h5>
+                                <p>
+                                    {{ rs.description }}
+                                </p>
+                                <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }} TL</a></h4>
+
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+        </div>
+                <hr class="soft">
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

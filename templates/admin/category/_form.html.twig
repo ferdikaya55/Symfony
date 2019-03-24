@@ -1,0 +1,51 @@
+
+<form role="form" method="post">
+
+    <div class="form-group">
+        <label>Üst Kategori</label>
+        <select class="form-control"  name="category[parentid]">
+            {% if category.parentid!=0 %}
+            <option value="{{ category.parentid }}">{{ catname.title }}</option>
+            {% else %}
+            <option value="0">Ana Kategori</option>
+            {% endif %}
+            {% for cat in catlist %}
+            <option value="{{ cat.id }}">{{ cat.title }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label>Title  (Başlık)</label>
+        <input class="form-control" type="text"  name="category[title]" value="{{ category.title }}" placeholder="Title">
+
+    </div>
+
+    <div class="form-group">
+        <label>Keywords (Anahtar Kelimeler)</label>
+        <input class="form-control" type="text"  name="category[keywords]" value="{{ category.keywords }}" placeholder="Keywords">
+    </div>
+
+    <div class="form-group">
+        <label>Description (Kısa Açıklama)</label>
+        <input class="form-control" type="text"  name="category[description]" value="{{ category.description }}" placeholder="Description">
+    </div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Aktif Durumu</label>
+        <select class="form-control"  name="category[status]">
+            <option>{{ category.status }}</option>
+            <option >True</option>
+            <option >False</option>
+
+        </select>
+    </div>
+    <div class="btn-small">
+        <input type="submit" value="KAYDET" class="btn btn-info">
+        <button type="submit"  class="btn btn-info">Geri Dön</button>
+
+    </div>
+</form>

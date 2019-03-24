@@ -1,0 +1,110 @@
+<style>
+ul#menu-v, #menu-v ul
+{
+width:270px; /* Main Menu width */
+border:1px solid #CCCCCC;
+list-style:none; margin:0; padding:0;
+z-index:9;
+}
+
+#menu-v li
+{
+margin:0;padding:0;
+position:relative;
+background-color:#EEEEEE; /*fallback color*/
+background-color:rgba(255,255,255,0.8);
+transition:background 0.5s;
+}
+#menu-v li:hover
+{
+background-color:rgba(255,255,255,0.5);
+}
+
+#menu-v a
+{
+font:normal 12px Arial;
+border-top:1px solid #CCCCCC;
+display:block;
+color:#444444;
+text-decoration:none;
+line-height:26px;
+padding-left:22px;
+position:relative;
+}
+
+#menu-v li:first-child a
+{
+border-top:0;
+}
+#menu-v a:hover {
+    background-color: #2c618f;
+    color: white;
+}
+#menu-v a.arrow::after{
+content:'';
+position:absolute;
+display:inline;
+top:50%;
+margin-top:-4px;
+right:8px;
+border-width:4px;
+border-style:solid;
+border-color:transparent transparent transparent black;
+transition:border-color 0.5s;
+}
+
+#menu-v li a.arrow:hover::after
+{
+    background-color: #666;
+border-color:transparent transparent transparent red;
+}
+
+/*Sub level menu items
+---------------------------------------*/
+#menu-v li ul
+{
+min-width:180px; /* Sub level menu min width */
+position:absolute;
+display:none;
+left:100%;
+top:0;
+}
+
+#menu-v li:hover > ul
+{
+display:block;
+}
+</style>
+
+
+<div id="sidebar" class="span3">
+    <div class="well well-small"> <a id="myCart" href="{{ path('shopcart_index') }}"><img src="{{ asset('themes') }}/images/ico-cart.png" alt="cart"> <b class="alert-error">Sepette %50 İndirim Fırsatı</b></a></div>
+
+    {% for cat in cats%}
+        {{ cat|raw }}
+    {% endfor %}
+
+    <br/>
+
+    <div class="thumbnail">
+        <img src="{{ asset('themes') }}/images/products/sideresim.jpg" alt="Moon Siyah Erkek Bot"/>
+        <div class="caption">
+            <h5>U.S. Polo Assn.</h5>
+            <h4 style="text-align:center"> <a class="btn" href="#"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">200 TL</a></h4>
+        </div>
+    </div><br/>
+
+    <div class="thumbnail">
+        <img src="{{ asset('themes') }}/images/products/sideresim2.jpg" alt="Kahverengi Erkek Ayakkabı">
+        <div class="caption">
+            <h5>Panama Club</h5>
+            <h4 style="text-align:center"> <a class="btn" href="#"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">200 TL</a></h4>
+        </div>
+    </div><br/>
+    <div class="thumbnail">
+        <img src="{{ asset('themes') }}/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+        <div class="caption">
+            <h5>Ödeme İmkanları</h5>
+        </div>
+    </div>
+</div>

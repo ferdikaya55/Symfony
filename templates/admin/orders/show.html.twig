@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Order Detail {% endblock %} </title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{ asset('admin') }}/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="{{ asset('admin') }}/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="{{ asset('admin') }}/assets/css/basic.css" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="{{ asset('admin') }}/assets/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures) {
+            window.open(windowURL, windowName, windowFeatures);
+        }
+    </SCRIPT>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+
+</head>
+<body>
+    <h1>Sipariş Detayı</h1>
+    {% include ('messages.html.twig') %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ order.id }}</td>
+        </tr>
+        <tr>
+            <th>Userid</th>
+            <td>{{ order.userid }}</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+            <td>{{ order.amount }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ order.name }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ order.address }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ order.city }}</td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td>{{ order.phone }}</td>
+        </tr>
+        <form action="{{ path('admin_orders_update',{'id': order.id}) }}" method="post">
+
+            <tr>
+                <th>Info</th>
+                <td><textarea name="info" cols="100" rows="3">{{ order.info }}</textarea></td>
+            </tr>
+            <tr>
+                <th>Admin Note</th>
+                <td><textarea name="note" cols="100" rows="3">{{ order.note }}</textarea></td>
+            </tr>
+
+            <tr>
+                <th>Status</th>
+                <td><select name="status">
+                        <option>{{ order.status }}</option>
+                        <option>Accepted</option>
+                        <option>InShipping</option>
+                        <option>Canceled</option>
+                        <option>Completed</option>
+
+                    </select>
+                    <input type="submit" value="Guncelle">
+                </td>
+            </tr>
+
+        </form>
+        </tbody>
+    </table>
+
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>ProductName</th>
+            <th>Sale Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set total=0 %}
+        {% for rs in orderdetail %}
+            <tr>
+                <td>{{ rs.id }}</td>
+                <td>{{ rs.name }}</td>
+                <td>{{ rs.price }}</td>
+                <td>{{ rs.quantity }}</td>
+                <td>{{ rs.amount }}</td>
+                <td>{{ rs.status }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Order Detail</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5">Toplam Alışveriş Tutarı : {{ order.amount }} TL<b></b><br>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+</body></html>

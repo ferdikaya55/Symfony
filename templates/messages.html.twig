@@ -1,0 +1,26 @@
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        {% if (label == 'success' )  %}
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4><i class="icon fa fa-check"></i>Başarılı!!</h4>
+                </div>
+            </div>{{ flash|raw }}
+        {% elseif (label == 'error' ) %}
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <strong>Error!</strong>
+                </div>
+            </div>{{ flash|raw }}
+        {% elseif (label == 'info' ) %}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> {{ flash|raw }}
+            </div>
+
+            {% elseif (label == 'warning' ) %}
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> {{ flash|raw }}
+                </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

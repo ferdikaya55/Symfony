@@ -1,0 +1,30 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+
+{% block content %}
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="col-">
+            <h5 class="page-head-line">Ürün Düzenleme </h5>
+
+            <!-- /. ROW  -->
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="table-responsive">
+
+                        {{ include('admin/user/messages.html.twig') }}
+
+                        {{ include('admin/product/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+                        {{ include('admin/product/_delete_form.html.twig') }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% endblock %}

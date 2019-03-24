@@ -1,0 +1,20 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Shopcart Order Items{% endblock %}
+{% block sidebar %} {% include ('home/_usersidebar.html.twig') %} {% endblock %}
+{% block content %}
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Anasayfa</a> <span class="divider">/</span></li>
+        <li><a href="#">Shopcart Items</a> <span class="divider">/</span></li>
+        <li class="active">Ürün Detayı</li>
+    </ul>
+    <div class="row">
+
+        <div class="span3">
+            <h5>Shopcart Items </h5>
+            {{ include('orders/_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

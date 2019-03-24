@@ -1,0 +1,66 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+{% block sidebar %} {% include ('home/_usersidebar.html.twig') %} {% endblock %}
+{% block content %}
+
+<div class="span9">
+
+        <ul class="breadcrumb">
+            <li><a href="{{ path('home') }}">Anasayfa</a> <span class="divider">/</span></li>
+            <li><a href="#">Shopcart Items</a> <span class="divider">/</span></li>
+            <li class="active">Ürün Detayı</li>
+        </ul>
+        <div class="row">
+
+            <div class="span3">
+                <h5>Shopcart Items </h5>
+                {% include ('messages.html.twig') %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Ürün Adı</th>
+                        <th>Satış Fiyatı</th>
+                        <th>Miktarı</th>
+                        <th>Toplam</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set total=0 %}
+                    {% for shopcart in shopcarts %}
+                        <tr>
+                            <td>{{ shopcart.id }}</td>
+                            <td>{{ shopcart.title }}</td>
+                            <td>{{ shopcart.sprice }}</td>
+                            <td>{{ shopcart.quantity }}</td>
+                            <td>{{  shopcart.quantity * shopcart.sprice}} </td>
+                            <td>
+                            <td><a href="{{ path('shopcart_del',{'id':shopcart.id})}}" onclick="return confirm('Silinecek Emin Misin?');"
+                                   class="btn btn-danger btn-xs">Sil</a> </td>
+
+                            </td>
+                        </tr>
+                        {% set total=total +(shopcart.quantity * shopcart.sprice) %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Shopcart is empty</td>
+                        </tr>
+                    {% endfor %}
+                        <tr>
+                            <td colspan="5"><b> Toplam Alışveriş Tutarı : {{ total }} TL</b> <br>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <a href="{{ path('orders_new') }}" class="btn btn-block btn-success btn-large"> Ürünleri Satın Al</a>
+
+            </div>
+        </div>
+
+
+{% endblock %}
+

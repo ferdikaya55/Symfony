@@ -1,0 +1,63 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Login Ekranı  {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block sidebar %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% include ('home/_usersidebar.html.twig') %}
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+
+    <div class="span9">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            Kullanıcı :   {{ app.user.name }} <br>
+            Kullanıcı Mail :   {{ app.user.email }} <br>
+            Kullanıcı Şehir :   {{ app.user.city }}
+             {% if  app.user.roles|join=='ROLE_ADMIN'  %}
+                 <h4>Admin Yetkiniz Bulunmaktadır.</h4><br>Admin Sayfasına Gitmek İçin Tıklayınız..
+                 <a href="{{ path('admin') }}" class="btn btn-lg btn-primary">Admin Panel</a>
+             {% endif %}
+
+        {% else %}
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                {% include ('messages.html.twig') %}
+                <h4 class="h3 mb-3 font-weight-normal">Kullanıcı Girişi</h4>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                       class="form-control" placeholder="Email" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       placeholder="Password" required>
+
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+
+                {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}<br>
+                <button class="btn btn-lg btn-primary" type="submit">
+                    Giriş Yap
+                </button>
+                <a href="{{ path('new_user') }}" class="btn btn-lg btn-primary">Üye Ol</a>
+            </form>
+
+
+        {% endif %}
+    </div>
+
+
+{% endblock %}

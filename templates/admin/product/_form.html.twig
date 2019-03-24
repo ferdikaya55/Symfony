@@ -1,0 +1,85 @@
+<form role="form" method="post">
+
+    <div class="form-group">
+        <label>Kategorisi</label>
+
+        <select class="form-control" name="product[category_id]">
+            {% if (catname) %}
+            <option value="{{ product.categoryid }}">{{ catname[0].title }}</option> // sıfırıncı satırdaki title değerini getiriyor.bütün kategorilerin eşleşen satırını getiriyor.direk erişemediği için döngüye alıyoruz.
+            {% endif %}
+
+            {% for cat in catlist %}
+                <option value="{{ cat.id }}">{{ cat.title }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label>Başlık</label>
+        <input class="form-control" type="text" name="product[title]" value="{{ product.title }}" placeholder="Title">
+
+    </div>
+
+    <div class="form-group">
+        <label>Anahtar Kelimeler</label>
+        <input class="form-control" type="text" name="product[keywords]" value="{{ product.keywords }}"
+               placeholder="Keywords">
+    </div>
+
+    <div class="form-group">
+        <label>Açıklama</label>
+        <input class="form-control" type="text" name="product[description]" value="{{ product.description }}"
+               placeholder="Description">
+    </div>
+
+    <div class="form-group">
+        <label>Alış Fiyatı</label>
+        <input class="form-control" type="text" name="product[price]" value="{{ product.price }}"
+               placeholder="Alış Fiyatı">
+    </div>
+
+    <div class="form-group">
+        <label>Satış Fiyatı</label>
+        <input class="form-control" type="text" name="product[sprice]" value="{{ product.sprice }}"
+               placeholder="Satış Fiyatı">
+    </div>
+
+    <div class="form-group">
+        <label>Miktar</label>
+        <input class="form-control" type="text" name="product[amount]" value="{{ product.amount }}"
+               placeholder="Miktar">
+    </div>
+
+
+    <div class="form-group">
+        <label>Aktif Durumu</label>
+        <select class="form-control" name="product[status]">
+            <option>{{ product.status }}</option>
+            <option>True</option>
+            <option>False</option>
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Detay</label>
+        <div class="form-group-sm">
+            <textarea id="detail" name="product[detail]">{{ product.detail }}</textarea>
+        </div>
+    </div>
+
+    <div class="btn-small">
+
+        <input type="submit" value="KAYDET" class="btn btn-info">
+
+        <button type="submit" class="btn btn-info">    <a href="{{ path('admin_product_index') }}">GERİ DÖN</a></button>
+    </div>
+</form>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#detail'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

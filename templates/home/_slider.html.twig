@@ -1,0 +1,82 @@
+<div class="span9">
+    <div class="well well-small">
+        <h4>Yeni Sezon <small class="pull-right">Yeni Sezonda Sizler İçin Yeniliyoruz</small></h4>
+        <div class="row-fluid">
+            <div id="featured" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <ul class="thumbnails">
+                            {% for rs in sliders %}
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                                    <div class="caption">
+                                        <h5>{{ rs.title }}</h5>
+                                        <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }}TL</a></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+
+                    <div class="item">
+                        <ul class="thumbnails">
+                            {% for rs in sliders1 %}
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                                    <div class="caption">
+                                        <h5>{{ rs.title }}</h5>
+                                        <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }} TL</a></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            {% for rs in sliders2 %}
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                                        <div class="caption">
+                                            <h5>{{ rs.title }}</h5>
+                                            <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }} TL</a></h4>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            {% for rs in sliders3 %}
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                                        <div class="caption">
+                                            <h5>{{ rs.title }}</h5>
+                                            <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }} TL</a></h4>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+            </div>
+        </div>
+    </div>
+

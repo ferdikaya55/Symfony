@@ -1,0 +1,24 @@
+<h4 style="text-align: center " >Öne Çıkan Ürünler</h4>
+
+<ul class="thumbnails">
+    {% for rs in contents %}
+    <li class="span3">
+        <div class="thumbnail">
+            <a  href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" /></a>
+            <div class="caption">
+                <h5>{{ rs.title }}</h5>
+                <p>
+                   {{ rs.description }}
+                </p>
+
+                <h4 style="text-align:center"> <a class="btn" href="{{ path('product_detail',{'id':rs.id}) }}"> <i class="icon-zoom-in"></i>İncele</a> <a class="btn btn-primary" href="#">{{ rs.sprice }} TL</a></h4>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+</div>
+</div>
+</div>
+</div>

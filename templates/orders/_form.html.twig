@@ -1,0 +1,67 @@
+
+{{ include ('messages.html.twig') }}
+<form role="form" name="order" action="{{ path('orders_new') }}" method="post">
+<fieldset>
+    <label>Ödenecek Tutar :</label>
+    <div class="form-group">
+
+        <input type="text" name="orders[amount]" value="{{ total }} TL" placeholder="amount" class="input-xlarge"/>
+    </div>
+    <hr>
+    KARGO ALICI BİLGİLERİ
+    <hr>
+
+    <div class="form-group">
+        <label>Adı Soyadı :</label>
+        <input class="input-xlarge" type="text" name="orders[name]" value="{{ app.user.name }}" placeholder="name">
+
+    </div>
+
+    <div class="form-group">
+        <label>Adresi :</label>
+        <input class="input-xlarge" type="text" name="orders[address]" value="{{app.user.address}}"
+               placeholder="Adresi">
+    </div>
+
+    <div class="form-group">
+        <label>Şehir :</label>
+        <input class="input-xlarge" type="text" name="orders[city]" value="{{ app.user.city }}"
+               placeholder="şehir">
+    </div>
+
+    <div class="form-group">
+        <label>Telefon :</label>
+        <input class="input-xlarge" type="text" name="orders[phone]" value="{{ app.user.phone }}"
+               placeholder="Alış Fiyatı">
+    </div>
+    <hr>
+    KREDİ KARTI BİLGİLERİ
+    <hr>
+
+    <div class="form-group">
+        <label>Adı Soyadı :</label>
+        <input class="input-xlarge" type="text" name="cardholdername"  placeholder="Kart Adı Soyadı">
+
+    </div>
+    <div class="form-group">
+        <label>Kar Numarası :</label>
+        <input class="input-xlarge" type="text" name="cardnumber"  placeholder="Kart Numarası">
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Güvenik Kodu :</label>
+        <input class="input-xlarge" type="number" name="cardsecuritycode"  placeholder="Güvenlik Kodu">
+
+    </div>
+
+   <input type="hidden" name="token" value="{{ csrf_token('form-order') }}"/>
+
+    <div class="form-group">
+        <label> </label>
+        <input class="shopBtn" type="submit" value="SATIN AL">
+    </div>
+
+</fieldset>
+</form>

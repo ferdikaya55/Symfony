@@ -1,0 +1,25 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Üye Bilgileri{% endblock %}
+{% block sidebar %} {% include ('home/_usersidebar.html.twig') %} {% endblock %}
+{% block body %}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Anasayfa</a> <span class="divider">/</span></li>
+        <li><a href="#">Üye Bilgileri</a> <span class="divider">/</span></li>
+        <li class="active">Üye</li>
+    </ul>
+    <div class="row">
+
+        <div class="span3" style="padding-left: 10px">
+            <h4>Üye Düzenleme</h4>
+
+            {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+        </div>
+    </div>
+</div>
+    {% endblock %}
+
